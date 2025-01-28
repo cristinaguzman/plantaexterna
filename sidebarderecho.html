@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Derecho</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .sidebar {
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #e6f7e6;
+            border-left: 3px solid #00c4a7;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 25%;
+        }
+
+        .sidebar h5 {
+            background-color: #c9f0c9;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        .sidebar-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: #a454c9;
+            border-radius: 10px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+            background: #72299a;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #4a4a4a;
+        }
+
+        .sidebar a:hover {
+            color: #2d6a4f;
+        }
+
+        .main-content {
+            margin-right: 20%;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Main content -->
+        <div class="main-content flex-grow-1 p-3">
+            <h1>Contenido Principal</h1>
+            <p>Aquí va el contenido principal de la página.</p>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar scrollbar-custom">
+            <h5>Órdenes de trabajo</h5>
+            <div class="sidebar-item">
+                <a href="#">OT 10201: Revisión cámara 1, 2, 3, 4, 5, filtros e indoor... - CKO Seguridad SPA</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10203: Cámara adicional CONSTRUCTORA FSV - BAQUEDANO 97</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10258: Revisión cámara IMPORTADORA IMPRICEN LTDA</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10259: Audio con problemas EDUCACIÓN Y DEPORTES ALTO MACUL</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10260: Revisar brazo MERIGGI INDEPENDENCIA</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10268: Intermitencia CONDOMINIO PORTOZUELO DE LAS PIRCAS</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10275: Realizar pruebas de filtro COM ALESSANDRINI ALBERTO HURTADO</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10279: Mantenimiento general COMERCIAL DICALSA AL CHICUREO</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10280: Ruido en parlante PINTURAS TRICOLOR S.A.</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10281: CENTRO FERRETERO SANTIAGO ACOME S.A</a>
+            </div>
+            <div class="sidebar-item">
+                <a href="#">OT 10282: Instalación de 2 cámaras Ampliop Arauco 360, Santiago</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.navbar {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.navbar-brand .logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: #1D71B8;
+    border-color: #1D71B8;
+    font-weight: 600;
+}
+
+.text-primary2 {
+    --bs-text-opacity: 1;
+    color: #1D71B8 !important;
+}
+
+
+.btn-outline-primary {
+    color: #1D71B8;
+    border-color: #1D71B8;
+    font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1D71B8;
+    color: white;
+}
+
+
+/* Botón Base */
+.bton {
+    display: block; /* Hace que el botón ocupe todo el ancho asignado */
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Contenedor de Botones */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos botones por fila */
+    gap: 1rem; /* Espacio entre botones */
+    max-width: 600px; /* Ancho máximo opcional */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Estilos Adicionales de Botones */
+.btn-external { background-color: #5cb85c; color: white; }
+.btn-inventory { background-color: #0275d8; color: white; }
+.btn-internal { background-color: #f0ad4e; color: white; }
+.btn-maintenance { background-color: #d9534f; color: white; }
+
+/* Botón Base */
+
+.description {
+    margin-top: 40px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.description strong {
+    font-weight: bold;
+}
+
+
+/* login */
+.login{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+.login-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-logo img {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.text-link {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+/* login */
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem; /* Espaciado entre los botones */
+    max-width: 600px; /* Ancho máximo para el contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 1rem; /* Espaciado interior */
+}
+
+.bton {
+    border-radius: 50px; /* Botones más circulares */
+    padding: 10px 20px; /* Tamaño cómodo */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el icono y el texto */
+    transition: all 0.3s ease;
+    display: block;
+}
+
+
+.bton:hover {
+    background-color: #0056b3; /* Color al pasar el cursor */
+    color: #fff; /* Texto blanco en hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    
+}
+
+/* Colores personalizados para los botones */
+.bton.btn-external {
+    background-color: #28a745; /* Verde */
+    color: #fff;
+    border-style: groove;
+}
+
+.bton.btn-inventory {
+    background-color: #ffc107; /* Amarillo */
+    color: #000;
+    border-style: groove;
+}
+
+.bton.btn-internal {
+    background-color: #007bff; /* Azul */
+    color: #fff;
+    border-style: groove;
+}
+
+.bton.btn-maintenance {
+    background-color: #dc3545; /* Rojo */
+    color: #fff;
+    border-style: groove;
+}
+
+
+.social-icons a {
+    font-size: 1.5rem;
+}
+
+.footer-logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+h6 {
+    color: #1b3257;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* sección footer */
+footer {
+    color: #333;
+    font-size: 12px;
+    padding-top: 16vh;
+    position: fixed;    
+    bottom: 0;    
+    width: 100%;    
+    z-index: 1000;
+   
+}
+
+.footerlogin {
+    color: #fff;
+}
+
+.footerlogin a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+.footerlogin a:hover {
+    color: #0d6efd;
+}
+
+.footer-logo img {
+    max-width: 100px;
+    height: auto;
+}  
+
+.py-4b {
+    padding-top: 1.5rem !important;
+    /* padding-bottom: 1.5rem !important; */
+}
+
+.footerlogin {
+    background-color: #1E73BE;
+    color: white;
+}
+
+.footer-bottom {
+    background-color: #1E73BE;
+}
+
+.footerlogin a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footerlogin a:hover {
+    color: #adb5bd;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #adb5bd;
+}
+
+.footer-logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+h6 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Sección Superior del Footer */
+.footer-top {
+    background-color: #e3f2fd; /* Azul claro */
+    height: 140px;
+}
+
+.footer-top h6 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-top ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-top ul li a {
+    text-decoration: none;
+    color: #1B3257;
+    transition: color 0.3s ease;
+}
+
+.footer-top ul li a:hover {
+    color: #0056b3;
+}
+
+/* Sección Inferior del Footer */
+.footer-bottom {
+    background-color: #1e73be;
+    height: 8vh;
+}
+
+.footer-bottom p {
+    margin:0;
+    font-size: 13px;
+}
+/* sección footer */
+
+/* Espaciado entre íconos sociales */
+.social-icons a {
+    font-size: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffdd57; /* Ejemplo: amarillo en hover */
+}
+
+/* Responsividad breakpoint*/
+/* Tablet (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+      font-size: 0.5 rem;
+    }
+  }
+  
+  /* Escritorio estándar (769px a 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    body {
+      font-size: 0.7 rem;
+    }
+  }
+  
+  /* Pantallas grandes (1025px o más) */
+  @media (min-width: 1025px) {
+    body {
+      font-size: 0.8 rem;
+    }
+  }
+/* Responsividad breakpoint*/
+
+

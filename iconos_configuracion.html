@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Flow mapa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style_plantaexterna.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .sidebar {
+            height: 100vh; /* Altura completa de la pantalla */
+            overflow-y: auto; /* Habilita el scroll si hay demasiados elementos */
+        }
+
+        .calendar-table th,
+        .calendar-table td {
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+        }
+
+        .task {
+            background-color: #28a745;
+            color: white;
+            font-size: 0.9em;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .header {
+            background-color: #e8e8ff;
+            padding: 15px;
+        }
+
+        .scroll-indicator {
+            background-color: #7b2fb5;
+            width: 5px;
+            height: 100%;
+        }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #f8f9fa; /* Cambio de fondo al pasar el ratón */
+        }
+
+        .task-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            width: 100%;
+        }
+
+        .task-card {
+            background-color: #11467e;
+            color: white;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/logoazul1.png" alt="Task Flow Logo" class="d-inline-block align-text-top"
+                        width="150">
+                </a>
+                <!-- Botón hamburguesa para dispositivos pequeños -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Botones principales -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="kpi.html" class="btn mx-1">KPI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="OTS-arb.html" class="btn mx-1">OTs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mapa.html" class="btn mx-1">Mapa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="agenda.html" class="btn mx-1">Agenda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="reporte.html" class="btn mx-1">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="comunicaciones.html" class="btn mx-1">Comunicaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="clientes_arriba.html" class="btn mx-1">Clientes</a>
+                        </li>
+                    </ul>
+                    <!-- Botones de acción principales -->
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <svg enable-background="new 0 0 512 512" height="24" width="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <g>
+                                            <g>
+                                                <path d="m301 496h-90c-2.761 0-5-2.238-5-5v-51.661c-15.476-4.21-30.335-10.37-44.276-18.353l-36.539 36.539c-.938.938-2.209 1.465-3.536 1.465s-2.598-.526-3.536-1.465l-63.64-63.64c-1.953-1.952-1.953-5.118 0-7.07l36.539-36.539c-7.982-13.941-14.141-28.8-18.351-44.276h-51.661c-2.761 0-5-2.238-5-5v-90c0-2.761 2.239-5 5-5h51.661c4.21-15.476 10.37-30.335 18.353-44.276l-36.539-36.539c-1.953-1.953-1.953-5.119 0-7.071l63.64-63.64c1.953-1.952 5.118-1.952 7.071 0l36.539 36.539c13.94-7.983 28.8-14.143 44.276-18.353v-51.66c0-2.761 2.239-5 5-5h90c2.762 0 5 2.239 5 5v51.661c15.476 4.21 30.335 10.37 44.275 18.353l36.54-36.539c1.951-1.952 5.119-1.952 7.07 0l63.64 63.64c.938.938 1.465 2.209 1.465 3.536s-.526 2.598-1.465 3.536l-36.539 36.539c7.982 13.94 14.143 28.8 18.353 44.276h51.66c2.762 0 5 2.239 5 5v90c0 2.762-2.238 5-5 5h-51.661c-4.21 15.476-10.37 30.335-18.353 44.276l36.539 36.539c.938.938 1.465 2.209 1.465 3.535s-.526 2.598-1.465 3.535l-63.64 63.64c-1.951 1.953-5.119 1.953-7.07 0l-36.54-36.539c-13.94 7.982-28.8 14.143-44.275 18.353v51.659c0 2.762-2.238 5-5 5zm-85-10h80v-50.523c0-2.294 1.562-4.294 3.787-4.851 17.146-4.285 33.536-11.08 48.719-20.194 1.967-1.182 4.485-.871 6.108.752l35.736 35.735 56.568-56.568-35.735-35.735c-1.623-1.622-1.933-4.141-.752-6.108 9.115-15.184 15.909-31.575 20.194-48.72.557-2.226 2.557-3.787 4.851-3.787h50.524v-80h-50.523c-2.294 0-4.294-1.562-4.851-3.787-4.285-17.146-11.08-33.537-20.194-48.719-1.181-1.968-.871-4.487.752-6.109l35.735-35.735-56.568-56.569-35.736 35.735c-1.622 1.623-4.142 1.934-6.108.751-15.183-9.114-31.573-15.908-48.719-20.194-2.226-.556-3.787-2.556-3.787-4.851v-50.523h-80v50.523c0 2.294-1.562 4.294-3.787 4.851-17.146 4.286-33.537 11.08-48.719 20.194-1.968 1.181-4.487.871-6.109-.751l-35.736-35.735-56.568 56.568 35.735 35.735c1.623 1.623 1.932 4.142.751 6.109-9.114 15.182-15.908 31.573-20.194 48.719-.556 2.226-2.556 3.787-4.851 3.787h-50.523v80h50.523c2.294 0 4.294 1.562 4.851 3.787 4.285 17.145 11.08 33.536 20.194 48.72 1.181 1.968.871 4.486-.751 6.108l-35.735 35.735 56.568 56.568 35.735-35.735c1.624-1.623 4.143-1.933 6.109-.752 15.182 9.114 31.573 15.909 48.719 20.194 2.226.557 3.787 2.557 3.787 4.851z"/>
+                                                <path d="m256 376c-66.168 0-120-53.832-120-120s53.832-120 120-120 120 53.832 120 120-53.832 120-120 120zm0-230c-60.654 0-110 49.346-110 110s49.346 110 110 110 110-49.346 110-110-49.346-110-110-110z"/>
+                                                <path d="m256 330c-40.804 0-74-33.196-74-74s33.196-74 74-74 74 33.196 74 74-33.196 74-74 74zm0-138c-35.29 0-64 28.71-64 64s28.71 64 64 64 64-28.71 64-64-28.71-64-64-64z"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+
+                   
+                        
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <svg id="Icons" enable-background="new 0 0 30 30" height="24" width="24" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="rgb(0,0,0)">
+                                        <path d="m25.42627 9.06543 2.25244-2.59961-4.14453-4.14453-2.59961 2.25244c-.87354-.5-1.79688-.88379-2.75879-1.14795l-.24463-3.42578h-5.8623l-.24463 3.42578c-.96192.26416-1.88526.64795-2.75879 1.14795l-2.59961-2.25244-4.14453 4.14453 2.25244 2.59961c-.5.87354-.88379 1.79688-1.14795 2.75879l-3.42578.24463v5.86182l3.42578.24512c.26416.96191.64795 1.88574 1.14795 2.75879l-2.25293 2.5996 4.14502 4.14453 2.59961-2.25293c.87354.5 1.79688.88477 2.75879 1.14844l.24463 3.42578h5.8623l.24463-3.42578c.96191-.26367 1.88525-.64844 2.75879-1.14844l2.59961 2.25293 4.14502-4.14453-2.25293-2.59961c.5-.87305.88379-1.79688 1.14795-2.75879l3.42578-.24512v-5.86182l-3.42578-.24463c-.26416-.96191-.64795-1.88525-1.14795-2.75878zm2.57373 7.00391-3.05371.21777-.15283.74121c-.25342 1.22949-.73682 2.39258-1.43799 3.45801l-.41602.63281 2.0083 2.31738-1.51123 1.51172-2.31836-2.00977-.63232.41699c-1.06494.70117-2.22803 1.18457-3.45752 1.43848l-.74121.15332-.21826 3.05274h-2.1377l-.21826-3.05273-.74121-.15332c-1.22949-.25391-2.39258-.7373-3.45752-1.43848l-.63232-.41699-2.31836 2.00977-1.51123-1.51172 2.0083-2.31738-.41602-.63281c-.70117-1.06543-1.18457-2.22852-1.43799-3.45801l-.15283-.74121-3.05371-.21778v-2.13818l3.05371-.21826.15283-.7417c.25342-1.22949.73682-2.39258 1.43799-3.45703l.41602-.63232-2.00879-2.31837 1.51172-1.51172 2.31836 2.00879.63232-.41602c1.06445-.70117 2.22754-1.18457 3.45703-1.43799l.7417-.15283.21826-3.05371h2.1377l.21826 3.05371.7417.15283c1.22949.25342 2.39258.73682 3.45703 1.43799l.63232.41602 2.31836-2.00879 1.51172 1.51172-2.00879 2.31836.41602.63232c.70117 1.06445 1.18457 2.22754 1.43799 3.45703l.15283.7417 3.05371.21826z"/>
+                                        <path d="m15 8c-3.85986 0-7 3.14014-7 7 0 3.85938 3.14014 7 7 7s7-3.14063 7-7c0-3.85986-3.14014-7-7-7zm0 12c-2.75684 0-5-2.24316-5-5s2.24316-5 5-5 5 2.24316 5 5-2.24316 5-5 5z"/>
+                                    </g>
+                                </svg>
+                               
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <svg id="Layer_1" height="24" width="24" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path d="M47.3 20.1l-4.8-1.5c-.2-.5-.4-1-.6-1.5l2.4-4.5c.4-.7.2-1.6-.3-2.2l-4.5-4.5c-.6-.6-1.4-.7-2.2-.3l-4.5 2.4c-.5-.2-1-.4-1.5-.6l-1.5-4.8c-.2-.8-.9-1.3-1.8-1.3h-6.3c-.8 0-1.5.5-1.8 1.3l-1.5 4.8c-.5.2-1 .4-1.5.6l-4.5-2.4c-.7-.4-1.6-.2-2.2.3l-4.5 4.5c-.6.6-.7 1.4-.3 2.2l2.4 4.5c-.2.5-.4 1-.6 1.5l-4.8 1.5c-.8.2-1.3.9-1.3 1.8v6.3c0 .8.5 1.5 1.3 1.8l4.8 1.5.6 1.5-2.4 4.5c-.4.7-.2 1.6.3 2.2l4.5 4.5c.6.6 1.4.7 2.2.3l4.5-2.4c.5.2 1 .4 1.4.6l1.5 4.8c.2.8.9 1.3 1.8 1.3h6.3c.8 0 1.5-.5 1.8-1.3l1.5-4.8c.5-.2 1-.4 1.4-.6l4.5 2.4c.7.4 1.6.2 2.2-.3l4.5-4.5c.6-.6.7-1.4.3-2.2l-2.4-4.5c.2-.5.4-1 .6-1.5l4.8-1.5c.8-.2 1.3-.9 1.3-1.8v-6.3c.2-.9-.3-1.6-1.1-1.8zm-2.4 6.7-4.4 1.4c-.6.2-1 .6-1.2 1.2-.3.9-.6 1.8-1.1 2.6-.3.5-.3 1.2 0 1.7l2.2 4.1-2.6 2.6-4.1-2.2c-.5-.3-1.2-.3-1.7 0-.9.5-1.7.8-2.6 1.1-.6.2-1 .6-1.2 1.2l-1.4 4.5h-3.6l-1.4-4.4c-.2-.6-.6-1-1.2-1.2-.9-.3-1.8-.6-2.6-1.1-.5-.3-1.2-.3-1.7 0l-4.1 2.2-2.6-2.6 2.2-4.1c.3-.5.3-1.2 0-1.7-.4-.8-.8-1.7-1.1-2.6-.2-.6-.6-1-1.2-1.2l-4.4-1.4v-3.6l4.4-1.4c.6-.2 1-.6 1.2-1.2.3-.9.6-1.8 1.1-2.6.3-.5.3-1.2 0-1.7l-2.2-4.1 2.6-2.6 4.1 2.2c.5.3 1.2.3 1.7 0 .8-.4 1.7-.8 2.6-1.1.6-.2 1-.6 1.2-1.2l1.4-4.6h3.6l1.4 4.4c.2.6.6 1 1.2 1.2.9.3 1.8.6 2.6 1.1.5.3 1.2.3 1.7 0l4.1-2.2 2.6 2.6-2.2 4.1c-.3.5-.3 1.2 0 1.7.4.8.8 1.7 1.1 2.6.2.6.6 1 1.2 1.2l4.4 1.4z"/>
+                                        <path d="M25 15.5c-5.2 0-9.5 4.3-9.5 9.5s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5-4.3-9.5-9.5-9.5zm0 15.3c-3.2 0-5.8-2.6-5.8-5.8s2.6-5.8 5.8-5.8 5.8 2.6 5.8 5.8-2.6 5.8-5.8 5.8z"/>
+                                    </g>
+                                </svg>
+                                
+                            </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <svg id="Layer_1" height="24" width="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path d="M46.8 20.5l-4.6-2c-.4-1.2-.9-2.4-1.5-3.5l1.9-4.6c.3-.7.1-1.6-.4-2.2l-2.4-2.4c-.6-.6-1.4-.7-2.2-.4l-4.6 1.8c-1.1-.6-2.3-1.1-3.5-1.4l-2-4.6c-.3-.7-1-1.2-1.8-1.2h-3.4c-.8 0-1.5.5-1.8 1.2l-2 4.6c-1.2.4-2.4.8-3.5 1.4l-4.6-1.9c-.8-.2-1.6 0-2.2.5l-2.4 2.4c-.6.6-.7 1.4-.4 2.2l1.9 4.6c-.6 1.1-1.1 2.3-1.4 3.5l-4.6 2c-.7.3-1.2 1-1.2 1.8v3.4c0 .8.5 1.5 1.2 1.8l4.6 2c.4 1.2.9 2.4 1.4 3.5l-1.8 4.6c-.3.7-.1 1.6.4 2.2l2.4 2.4c.6.6 1.4.7 2.1.4l4.6-1.8c1.1.6 2.3 1.1 3.5 1.5l2 4.6c.3.7 1 1.2 1.8 1.2h3.4c.8 0 1.5-.5 1.8-1.2l2-4.6c1.2-.4 2.4-.9 3.5-1.5l4.6 1.8c.7.3 1.6.1 2.2-.4l2.4-2.4c.6-.6.7-1.4.4-2.1l-1.9-4.7c.6-1.1 1.1-2.3 1.5-3.5l4.6-2c.7-.3 1.2-1 1.2-1.8v-3.4c0-.8-.5-1.5-1.2-1.8zM24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+                                        <circle cx="24" cy="24" r="6"/>
+                                    </g>
+                                </svg>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <svg id="Layer_1" height="24" width="24" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m255.992 165.826a90.176 90.176 0 1 0 90.18 90.174 90.273 90.273 0 0 0 -90.18-90.175zm8 225.666a8 8 0 0 1 -8 8c-79.122.001-143.492-64.369-143.492-143.492a8 8 0 0 1 16 0 127.635 127.635 0 0 0 127.492 127.5 8 8 0 0 1 8 8zm135.491-135.492a8 8 0 1 1 -16 0 127.634 127.634 0 0 0 -127.491-127.492 8 8 0 1 1 0-16c79.117 0 143.491 64.369 143.491 143.491zm96.507 32.138-54.429 5.3a8 8 0 0 0 -7 6.072 182.549 182.549 0 0 1 -21.537 51.976 8 8 0 0 0 .656 9.246l34.742 42.248-45.452 45.455-42.238-34.751a8.016 8.016 0 0 0 -9.252-.651 182.368 182.368 0 0 1 -51.967 21.532 8.01 8.01 0 0 0 -6.081 7l-5.298 54.435h-64.28l-5.3-54.434a8 8 0 0 0 -6.067-7 182.434 182.434 0 0 1 -51.98-21.532 8 8 0 0 0 -9.243.651l-42.252 34.751-45.449-45.452 34.751-42.248a8.015 8.015 0 0 0 .646-9.246 182.391 182.391 0 0 1 -21.527-51.976 8.011 8.011 0 0 0 -7-6.072l-54.439-5.3v-64.278l54.439-5.3a8.011 8.011 0 0 0 7-6.072 182.536 182.536 0 0 1 21.527-51.978 8.016 8.016 0 0 0 -.646-9.247l-34.751-42.244 45.446-45.451 42.252 34.747a8 8 0 0 0 9.243.651 182.541 182.541 0 0 1 51.98-21.532 8 8 0 0 0 6.067-7l5.303-54.438h64.28l5.3 54.434a8.01 8.01 0 0 0 6.081 7 182.487 182.487 0 0 1 51.965 21.536 8.018 8.018 0 0 0 9.252-.651l42.238-34.747 45.451 45.451-34.742 42.244a8 8 0 0 0 -.656 9.247 182.532 182.532 0 0 1 21.537 51.975 8 8 0 0 0 7 6.072l54.429 5.3v64.275zm8.78-79.495a7.992 7.992 0 0 1 7.223 7.959v78.8a8 8 0 0 1 -7.223 7.963l-56.09 5.459a198.64 198.64 0 0 1 -19.088 46.076l35.8 43.526a8 8 0 0 1 -.519 10.742l-55.723 55.709a8 8 0 0 1 -10.737.524l-43.522-35.8a197.938 197.938 0 0 1 -46.079 19.088l-5.463 56.09a7.993 7.993 0 0 1 -7.959 7.221h-78.79a8.013 8.013 0 0 1 -7.973-7.228l-5.458-56.09a198.3 198.3 0 0 1 -46.069-19.082l-43.531 35.8a8 8 0 0 1 -10.737-.524l-55.711-55.712a8 8 0 0 1 -.528-10.742l35.807-43.522a198 198 0 0 1 -19.088-46.074l-56.09-5.459a8.008 8.008 0 0 1 -7.232-7.967v-78.8a8 8 0 0 1 7.233-7.959l56.09-5.463a197.818 197.818 0 0 1 19.087-46.071l-35.807-43.526a8 8 0 0 1 .528-10.743l55.713-55.712a8 8 0 0 1 10.737-.524l43.531 35.8a198.122 198.122 0 0 1 46.07-19.088l5.458-56.09a8.013 8.013 0 0 1 7.97-7.224h78.79a7.993 7.993 0 0 1 7.959 7.228l5.463 56.09a198.1 198.1 0 0 1 46.079 19.088l43.522-35.8a7.992 7.992 0 0 1 10.737.524l55.722 55.712a8 8 0 0 1 .519 10.743l-35.8 43.526a198.64 198.64 0 0 1 19.088 46.074z" fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <i class="bi bi-tools me-2"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="config_organizaciones.html" class="btn btn-light mx-1 d-flex align-items-center">
+                                <i class="fas fa-cogs me-2"></i> 
+                            </a>
+                        </li>
+                       
+                        <!-- Menú de usuario -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userMenu"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="material-icons"
+                                    style="font-size: 24px; color: #1D71B8;">account_circle</span>
+                                <span class="ms-1">Usuario</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Perfil</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Configuraciones</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Cerrar
+                                        Sesión</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Menú de usuario -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header -->
+ 
+    <main class="container-fluid py-3 mt-4">
+         <!-- Indicadores de estado -->
+         <div class="d-flex flex-wrap align-items-center gap-3 py-2 mt-5">
+            <!-- Botones principales alineados a la izquierda -->
+            <div class="d-flex flex-column flex-sm-row align-items-start gap-2">
+                <button class="btn btn-outline-primary d-flex align-items-center" title="Crear Usuario">
+                    <i class="bi bi-person-plus me-2"></i> Crear Usuario
+                </button>
+                <button class="btn btn-outline-secondary d-flex align-items-center" title="Desactivar Seleccionados">
+                    <i class="bi bi-toggle-off me-2"></i> Desactivar
+                </button>
+                <button class="btn btn-outline-success d-flex align-items-center" title="Activar Seleccionados">
+                    <i class="bi bi-toggle-on me-2"></i> Activar
+                </button>
+                <button class="btn btn-outline-danger d-flex align-items-center" title="Eliminar Seleccionados">
+                    <i class="bi bi-trash me-2"></i> Eliminar
+                </button>
+                <button class="btn btn-outline-danger d-flex align-items-center" title="Marcar como Terminada">
+                    <i class="bi bi-check-circle me-2"></i> Terminada
+                </button>
+                <button class="btn btn-outline-danger d-flex align-items-center" title="Anular">
+                    <i class="bi bi-x-circle me-2"></i> Anulada
+                </button>
+            </div>
+
+            <!-- Fecha y navegación -->
+            <div class="d-flex align-items-center ms-auto gap-3">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link text-decoration-none text-purple">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </button>
+                    <span class="mx-2">28 de oct - 3 de nov 2024</span>
+                    <button class="btn btn-link text-decoration-none text-purple">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-link text-decoration-none text-purple">
+                        <i class="bi bi-calendar"></i>
+                    </button>
+                    <button class="btn btn-link text-decoration-none text-purple">Día</button>
+                    <button class="btn btn-link text-decoration-none text-purple">Semana</button>
+                    <button class="btn btn-link text-decoration-none text-purple">Mes</button>
+                </div>
+            </div>
+
+            <!-- Buscador y herramientas -->
+            <div class="d-flex align-items-center ms-auto gap-3">
+                <div class="input-group" style="max-width: 300px;">
+                    <span class="input-group-text" id="search-addon">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                        aria-describedby="search-addon">
+                </div>
+                <button class="btn btn-warning d-flex align-items-center" title="Seleccionar Columnas">
+                    <i class="bi bi-layout-sidebar me-2"></i> 
+                </button>
+                <button class="btn btn-info d-flex align-items-center" title="Exportar Usuarios">
+                    <i class="bi bi-download me-2"></i> 
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-2 sidebar p-3 bg-light border-end ">
+                <h6 class="fw-bold mb-3">Trabajadores</h6>
+                <ul class="list-group text-bg-info p-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        J. Perez
+                        <span class="badge bg-primary rounded-pill">5 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        R. Riquelme
+                        <span class="badge bg-secondary rounded-pill">3 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        T. Vodan
+                        <span class="badge bg-success rounded-pill">7 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        L. Mahali
+                        <span class="badge bg-danger rounded-pill">2 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        G. Petreos
+                        <span class="badge bg-warning rounded-pill">4 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        J. Hernandez
+                        <span class="badge bg-info rounded-pill">6 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        K. Melin
+                        <span class="badge bg-dark rounded-pill">1 tarea</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        F. Solo
+                        <span class="badge bg-primary rounded-pill">8 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        J. Victoriano
+                        <span class="badge bg-secondary rounded-pill">3 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        M. Pavez
+                        <span class="badge bg-success rounded-pill">4 tareas</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        G. Pacheco
+                        <span class="badge bg-danger rounded-pill">5 tareas</span>
+                    </li>
+                </ul>
+            </aside>
+            
+
+            <!-- Main Content -->
+            <div class="col-md-10">
+                <!-- Calendar Table -->
+                <div>
+                    <table class="table calendar-table">
+                        <thead class="table-primary textotabla">
+                            <tr>
+                                <th>Lunes 28</th>
+                                <th>Martes 29</th>
+                                <th>Miércoles 30</th>
+                                <th>Jueves 31</th>
+                                <th>Viernes 1</th>
+                                <th>Sábado 2</th>
+                                <th>Domingo 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="task">OT 10201 Revisión cámara</div>
+                                </td>
+                                <td>
+                                    <div class="task">OT 10202 Instalación</div>
+                                </td>
+                                <td>
+                                    <div class="task">OT 10202 Instalación</div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                            </tr>
+
+                            <tr>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                            </tr>
+
+                            <tr>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                            </tr>
+
+                            <tr>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td><div class="task">OT 10202 Instalación</div></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <section>
+                        <div class="task-container container-fluid col-md-10">
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                            <div class="task-card">OT 10282, 8 días</div>
+                            <div class="task-card">OT 10283, 9 días</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECTION FOOTER -->
+    <footer class="footer text-white mt-auto position-fixed bottom-0 w-100">
+        <!-- Segunda sección (dirección y redes sociales) -->
+        <div class="footer-bottom py-2">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <!-- Logo -->
+                <div class="footer-logo d-flex align-items-center mb-3 mb-md-0">
+                    <img src="assets/img/logoblanco.png" alt="Task Flow Logo" class="me-2"
+                        style="width: 130px; height: auto;">
+                </div>
+                <!-- Dirección -->
+                <div class="col-12 col-md-3">
+                    <h6>CONTACTO</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="tel:+56299999999" class="text-white text-decoration-none">
+                                <i></i> Teléfono: +56 2 99999999
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:contacto@taskflow.cl" class="text-white text-decoration-none">
+                                <i></i> Email: contacto@taskflow.cl
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Íconos sociales -->
+                <div class="social-icons d-flex gap-3">
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Twitter">
+                        <i class="bi bi-twitter fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- SECTION FOOTER -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

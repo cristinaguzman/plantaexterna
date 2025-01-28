@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <style>
+        input:invalid {
+          border: 2px solid red;
+        }
+        input:valid {
+          border: 2px solid green;
+        }
+      </style>
+      
+      <form>
+        <label for="usuario">Usuario:</label>
+        <input 
+          type="text" 
+          id="usuario" 
+          name="usuario" 
+          placeholder="Nombre de usuario" 
+          pattern=".{4,}" 
+          title="Debe tener al menos 4 caracteres." 
+          required>
+        <button type="submit">Registrar</button>
+      </form>
+      
+
+</body>
+</html>
