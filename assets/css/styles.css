@@ -95,6 +95,12 @@ body {
     font-weight: bold;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 140vh; /* Ocupar toda la altura de la ventana */
+  } 
+
 
 /* login */
 .login{
