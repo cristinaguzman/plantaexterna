@@ -182,6 +182,40 @@
                     </section>
                 </div>
 
+                <section class="card">
+                    <div class="card-body">
+                    <fieldset class="custom-box">
+                        <legend class="custom-title">Agendamiento</legend>
+            
+                        <!-- Primera fila: Botones de selección y tiempo -->
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <button class="btn btn-outline-custom">Horario Fijo</button>
+                            <button class="btn btn-outline-custom">Franja Horaria</button>
+                            <span>Horas</span>
+                            <input type="number" class="form-control form-control-sm w-25 text-center" value="3">
+                            <span>Minutos</span>
+                            <input type="number" class="form-control form-control-sm w-25 text-center" value="0">
+                        </div>
+            
+                        <!-- Segunda fila: Agendamiento de la primera OT -->
+                        <div class="d-flex align-items-center gap-2">
+                            <p class="mb-0">Agendamiento de la primera OT del día es:</p>
+                            <button class="btn btn-primary">Horario Fijo</button>
+                            <button class="btn btn-info text-white">Franja Horaria</button>
+                        </div>
+            
+                        <!-- Tercera fila: Tolerancia de atraso -->
+                        <div>
+                            <p class="mb-1">Tolerancia de atraso en agendamientos es de</p>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="number" class="form-control form-control-sm w-25 text-center" value="0">
+                                <span>Minutos</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                </section>
+<br>
                 <!-- Permisos -->
                 <div class="card">
                     <div class="card-body">
