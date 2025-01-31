@@ -113,7 +113,7 @@
             style="white-space: nowrap; overflow-x: auto;">
             <!-- Botones principales al costado izquierdo -->
             <div class="d-flex align-items-center gap-2">
-                <button class="btn btn-outline-primary d-flex align-items-center gap-2 icon-button">
+                <button type="button" class="btn btn-outline-primary d-flex align-items-center gap-2 icon-button" data-bs-toggle="modal" data-bs-target="#gestionClientesModal">
                     <i class="bi bi-pencil-square"></i> Crear Cliente
                 </button>
                 <button class="btn btn-outline-danger d-flex align-items-center gap-2 icon-button">
@@ -331,6 +331,98 @@
     </footer>
     <!-- SECTION FOOTER -->
 </body>
+
+
+<!-- Modal -->
+<div class="modal fade" id="gestionClientesModal" tabindex="-1" aria-labelledby="gestionClientesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="gestionClientesModalLabel">Crear Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row g-3">
+                        <!-- Primera Columna -->
+                        <div class="col-md-6">
+                            <!-- RUT -->
+                            <div class="mb-3">
+                                <label for="rut" class="form-label"><strong>RUT</strong></label>
+                                <input type="text" id="rut" class="form-control" placeholder="Ingrese el RUT">
+                            </div>
+                
+                            <!-- Cliente -->
+                            <div class="mb-3">
+                                <label for="cliente" class="form-label"><strong>Cliente</strong></label>
+                                <input type="text" id="cliente" class="form-control" placeholder="Nombre del cliente">
+                            </div>
+                
+                            <!-- Dirección -->
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label"><strong>Dirección</strong></label>
+                                <input type="text" id="direccion" class="form-control" placeholder="Ingrese dirección">
+                            </div>
+                
+                            <!-- Sucursal -->
+                            <div class="mb-3">
+                                <label for="sucursal" class="form-label"><strong>Sucursal</strong></label>
+                                <input type="text" id="sucursal" class="form-control" placeholder="Sucursal">
+                            </div>
+                
+                            <!-- Contacto -->
+                            <div class="mb-3">
+                                <label for="contacto" class="form-label"><strong>Contacto</strong></label>
+                                <input type="text" id="contacto" class="form-control" placeholder="Nombre de contacto">
+                            </div>
+                        </div>
+                
+                        <!-- Segunda Columna -->
+                        <div class="col-md-6">
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label"><strong>Email</strong></label>
+                                <input type="email" id="email" class="form-control" placeholder="Correo electrónico">
+                            </div>
+                
+                            <!-- Teléfono -->
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label"><strong>Teléfono</strong></label>
+                                <input type="tel" id="telefono" class="form-control" placeholder="Teléfono de contacto">
+                            </div>
+                
+                            <!-- Tipo de Cliente -->
+                            <div class="mb-3">
+                                <label for="tipoCliente" class="form-label"><strong>Tipo de Cliente</strong></label>
+                                <select id="tipoCliente" class="form-select">
+                                    <option value="normal">Normal</option>
+                                    <option value="vip">VIP</option>
+                                    <option value="preferente">Preferente</option>
+                                </select>
+                            </div>
+                
+                            <!-- Grupo -->
+                            <div class="mb-3">
+                                <label for="grupo" class="form-label"><strong>Grupo</strong></label>
+                                <select id="grupo" class="form-select">
+                                    <option value="corporativo">Corporativo</option>
+                                    <option value="individual">Individual</option>
+                                    <option value="empresarial">Empresarial</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
