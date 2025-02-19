@@ -36,7 +36,7 @@
                             <a href="kpi.html" class="btn mx-1">KPI</a>
                         </li>
                         <li class="nav-item">
-                            <a href="OTS-arb.html" class="btn mx-1">OTs</a>
+                            <a href="OTS-arb.html" class="btn mx-1">OT</a>
                         </li>
                         <li class="nav-item">
                             <a href="mapa.html" class="btn mx-1">Mapa</a>
@@ -120,236 +120,132 @@
                     <a href="config_usuario.html" class="nav-link ">Usuario</a>
                     <a href="trabajadores.html" class="nav-link active">Trabajadores</a>
                     <a href="clientes.html" class="nav-link">Clientes</a>
-                    <a href="OTS-sb.html" class="nav-link">OTs</a>
+                    <a href="OTS-sb.html" class="nav-link">OT</a>
                     <a href="listadechequeo.html" class="nav-link">Lista de Chequeo</a>
                     <a href="formulario.html" class="nav-link">Formulario</a>
                     <a href="incidencia.html" class="nav-link">Incidencias</a>
-                    <a href="tipoOTs.html" class="nav-link">Tipo de OTs</a>
+                    <a href="tipoOTs.html" class="nav-link">Tipo de OT</a>
                     <a href="agendamiento.html" class="nav-link">Agendamiento</a>
                     <a href="inventario.html" class="nav-link">Inventario</a>
                     <a href="miplan.html" class="nav-link">Mi Plan</a>
                 </nav>
             </aside>
 
-            <!-- Botones de acciones con las tablas -->
-            <div class="textotabla mt-5 py-4 col-md-10">
-                <div class="row g-2 align-items-center justify-content-center">
-                    <!-- Segunda fila de botones -->
-                    <div class="row g-2 align-items-center justify-content-center">
-                        <!-- Botón Crear Usuario -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <button type="button" class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#usuarioConfigModal">
-                                <i class="bi bi-person-plus me-2"></i> Crear Trabajador
-                            </button>
-                        </div>
-                        <!-- Botón Desactivar Seleccionados -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <button
-                                class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center"
-                                title="Desactivar Seleccionados">
-                                <i class="bi bi-toggle-off me-2"></i>
-                                Desactivar
-                            </button>
-                        </div>
-                        <!-- Botón Activar Seleccionados -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <button
-                                class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center"
-                                title="Activar Seleccionados">
-                                <i class="bi bi-toggle-on me-2"></i>
-                                Activar
-                            </button>
-                        </div>
-                        <!-- Botón Eliminar Seleccionados -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <button
-                                class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center"
-                                title="Eliminar Seleccionados">
-                                <i class="bi bi-trash me-2"></i>
-                                Eliminar
-                            </button>
-                        </div>
-                        <!-- Botón terminar Seleccionados -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <button
-                                class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center"
-                                title="Marcar como Terminada">
-                                <i class="bi bi-check-circle me-2"></i>
-                                Terminada
-                            </button>
-                        </div>
-
-                        <!-- Botón Grupo Seleccionados -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <a href="grupodetrabajadores.html" class="btn btn-outline-warning w-100 d-flex align-items-center justify-content-center" title="Asignar Grupo">
-                                <i class="bi bi-people me-2"></i>
-                                Grupo
-                            </a>
-                        </div>
-
-                        <!-- Botón Configuración -->
-                        <div class="col-12 col-sm-auto flex-fill">
-                            <a href="configuraciontrabajores.html" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center" title="Configuración">
-                                <i class="bi bi-gear me-2"></i>
-                                Configuración
-                            </a>
-                        </div>
-
-                        <div class="d-flex justify-content-end align-items-center gap-3">
-                            <!-- Buscador -->
-                            <div class="input-group" style="max-width: 300px;">
-                                <span class="input-group-text" id="search-addon">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon">
-                            </div>
-                            
-                            <!-- Botón Columnas -->
-                            <button class="btn btn-warning d-flex align-items-center justify-content-center" title="Seleccionar Columnas">
-                                <i class="bi bi-layout-sidebar me-2"></i>
-                              
-                            </button>
-                            
-                            <!-- Botón Exportar -->
-                            <button class="btn btn-info d-flex align-items-center justify-content-center" title="Exportar Usuarios">
-                                <i class="bi bi-download me-2"></i>
-                                
-                            </button>
-                        </div>
-                        
-                    </div>
+            <div class="textotabla mt-5 py-2 col-md-10">
+                <!-- Botón "Crear Organización" -->
+                <div class="col-12 col-md-auto py-3">
+                    <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal"
+                        data-bs-target="#usuarioConfigModal">
+                        <i class="bi bi-person-plus me-2"></i> Crear Trabajadores
+                    </button>
                 </div>
-                <!-- Tabla Trabajadores -->
-<!-- Tabla Trabajadores -->
-<div class="mt-3 textotabla">
-    <table class="table table-bordered">
-        <thead class="table-primary">
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">App</th>
-                <th scope="col">Móvil</th>
-                <th scope="col">Precisión</th>
-                <th scope="col">Nivel</th>
-                <th scope="col">Grupo</th>
-                <th scope="col">Activo</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Empresa A</td>
-                <td>Usuario A</td>
-                <td>App A</td>
-                <td>123456789</td>
-                <td>95%</td>
-                <td>Alto</td>
-                <td>Grupo 1</td>
-                <td>
-                    <span class="badge bg-success">Sí</span>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-warning" title="Editar">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Empresa B</td>
-                <td>Usuario B</td>
-                <td>App B</td>
-                <td>987654321</td>
-                <td>80%</td>
-                <td>Medio</td>
-                <td>Grupo 2</td>
-                <td>
-                    <span class="badge bg-danger">No</span>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-warning" title="Editar">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>Empresa C</td>
-                <td>Usuario C</td>
-                <td>App C</td>
-                <td>112233445</td>
-                <td>70%</td>
-                <td>Bajo</td>
-                <td>Grupo 3</td>
-                <td>
-                    <span class="badge bg-success">Sí</span>
-                </td>
-                <td>
-                    <button class="btn btn-sm btn-warning" title="Editar">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
-                <!-- Modal de Edición -->
-                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Editar
-                                    Equipo</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Cerrar"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="workerName" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="workerName"
-                                            placeholder="Ingrese el nombre">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="workerRut" class="form-label">RUT</label>
-                                        <input type="text" class="form-control" id="workerRut"
-                                            placeholder="Ingrese el RUT">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="workerAddress" class="form-label">Dirección</label>
-                                        <input type="text" class="form-control" id="workerAddress"
-                                            placeholder="Ingrese la dirección">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="workerStatus" class="form-label">Estado</label>
-                                        <select class="form-select" id="workerStatus">
-                                            <option value="activo">Activo</option>
-                                            <option value="inactivo">Inactivo</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Guardar
-                                    Cambios</button>
-                            </div>
+                <div class="d-flex flex-wrap align-items-center gap-2 w-100">
+                    <!-- Campo de búsqueda -->
+                    <div class="flex-grow-1">
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Buscar">
                         </div>
                     </div>
+                    <!-- Botones de acción -->
+                    <div class="d-flex gap-2">
+                        <!-- Botón Columnas -->
+                        <button class="btn btn-warning d-flex align-items-center justify-content-center"
+                            title="Seleccionar Columnas">
+                            <i class="bi bi-layout-sidebar"></i>
+                        </button>
+
+                        <!-- Botón Exportar -->
+                        <button class="btn btn-info d-flex align-items-center justify-content-center text-white"
+                            title="Exportar Usuarios">
+                            <i class="bi bi-download"></i>
+                        </button>
+                    </div>
+                    
                 </div>
-            
+                <div class="mt-3 textotabla">
+                    <table class="table table-bordered">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">App</th>
+                                <th scope="col">Móvil</th>
+                                <th scope="col">Precisión</th>
+                                <th scope="col">Nivel</th>
+                                <th scope="col">Grupo</th>
+                                <th scope="col">Activo</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Empresa A</td>
+                                <td>Usuario A</td>
+                                <td>App A</td>
+                                <td>123456789</td>
+                                <td>95%</td>
+                                <td>Alto</td>
+                                <td>Grupo 1</td>
+                                <td>
+                                    <span class="badge bg-success">Sí</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" title="Editar">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Empresa B</td>
+                                <td>Usuario B</td>
+                                <td>App B</td>
+                                <td>987654321</td>
+                                <td>80%</td>
+                                <td>Medio</td>
+                                <td>Grupo 2</td>
+                                <td>
+                                    <span class="badge bg-danger">No</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" title="Editar">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Empresa C</td>
+                                <td>Usuario C</td>
+                                <td>App C</td>
+                                <td>112233445</td>
+                                <td>70%</td>
+                                <td>Bajo</td>
+                                <td>Grupo 3</td>
+                                <td>
+                                    <span class="badge bg-success">Sí</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" title="Editar">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarElementoModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
     </main>
 
     <!-- SECTION FOOTER -->
@@ -364,16 +260,10 @@
                 </div>
                 <!-- Dirección -->
                 <div class="col-12 col-md-3">
-                    <h6>CONTACTO</h6>
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="tel:+56299999999" class="text-white text-decoration-none">
-                                <i></i> Teléfono: +56 2 99999999
-                            </a>
-                        </li>
-                        <li>
                             <a href="mailto:contacto@taskflow.cl" class="text-white text-decoration-none">
-                                <i></i> Email: contacto@taskflow.cl
+                                <i></i> soporte@taskflow.cl
                             </a>
                         </li>
                     </ul>

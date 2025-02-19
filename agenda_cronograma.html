@@ -170,11 +170,8 @@
         </nav>
     </header>
     <!-- Header -->
- 
     <main class="container-fluid py-3 mt-4">
-         <!-- Indicadores de estado -->
-         <div class="d-flex flex-wrap align-items-center gap-3 py-2 mt-5">
-            <!-- Botones principales alineados a la izquierda -->
+        <div class="d-flex flex-wrap align-items-center gap-3 py-2 mt-5">
             <div class="d-flex flex-column flex-sm-row align-items-start gap-2">
                 <button class="btn btn-outline-primary d-flex align-items-center" title="Crear Usuario">
                     <i class="bi bi-person-plus me-2"></i> Crear Usuario
@@ -195,8 +192,6 @@
                     <i class="bi bi-x-circle me-2"></i> Anulada
                 </button>
             </div>
-
-            <!-- Fecha y navegación -->
             <div class="d-flex align-items-center ms-auto gap-3">
                 <div class="d-flex align-items-center">
                     <button class="btn btn-link text-decoration-none text-purple">
@@ -216,217 +211,78 @@
                     <button class="btn btn-link text-decoration-none text-purple">Mes</button>
                 </div>
             </div>
-
-            <!-- Buscador y herramientas -->
             <div class="d-flex align-items-center ms-auto gap-3">
                 <div class="input-group" style="max-width: 300px;">
                     <span class="input-group-text" id="search-addon">
                         <i class="bi bi-search"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                        aria-describedby="search-addon">
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon">
                 </div>
                 <button class="btn btn-warning d-flex align-items-center" title="Seleccionar Columnas">
-                    <i class="bi bi-layout-sidebar me-2"></i> 
+                    <i class="bi bi-layout-sidebar me-2"></i>
                 </button>
                 <button class="btn btn-info d-flex align-items-center" title="Exportar Usuarios">
-                    <i class="bi bi-download me-2"></i> 
+                    <i class="bi bi-download me-2"></i>
                 </button>
             </div>
         </div>
 
         <div class="row">
-            <!-- Sidebar -->
-            <aside class="col-md-2 sidebar p-3 bg-light border-end ">
+            <aside class="col-md-2 sidebar p-3 bg-light border-end">
                 <h6 class="fw-bold mb-3">Trabajadores</h6>
-                <ul class="list-group text-bg-info p-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        J. Perez
-                        <span class="badge bg-primary rounded-pill">5 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        R. Riquelme
-                        <span class="badge bg-secondary rounded-pill">3 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        T. Vodan
-                        <span class="badge bg-success rounded-pill">7 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        L. Mahali
-                        <span class="badge bg-danger rounded-pill">2 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        G. Petreos
-                        <span class="badge bg-warning rounded-pill">4 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        J. Hernandez
-                        <span class="badge bg-info rounded-pill">6 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        K. Melin
-                        <span class="badge bg-dark rounded-pill">1 tarea</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        F. Solo
-                        <span class="badge bg-primary rounded-pill">8 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        J. Victoriano
-                        <span class="badge bg-secondary rounded-pill">3 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        M. Pavez
-                        <span class="badge bg-success rounded-pill">4 tareas</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        G. Pacheco
-                        <span class="badge bg-danger rounded-pill">5 tareas</span>
-                    </li>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Ana Pérez</li>
+                    <li class="list-group-item list-group-item-secondary">Carlos Gómez</li>
+                    <li class="list-group-item list-group-item-success">Beatriz Sánchez</li>
+                    <li class="list-group-item list-group-item-danger">Ana Pérez</li>
+                    <li class="list-group-item list-group-item-warning">Carlos Gómez</li>
+                    <li class="list-group-item list-group-item-info">Beatriz Sánchez</li>
+                    <li class="list-group-item list-group-item-primary">Ana Pérez</li>
+                    <li class="list-group-item list-group-item-secondary">Carlos Gómez</li>
+                    <li class="list-group-item list-group-item-success">Beatriz Sánchez</li>
+                    <li class="list-group-item list-group-item-danger">Ana Pérez</li>
+                    <li class="list-group-item list-group-item-warning">Carlos Gómez</li>
+                    <li class="list-group-item list-group-item-info">Beatriz Sánchez</li>
                 </ul>
             </aside>
-            
 
-            <!-- Main Content -->
             <div class="col-md-10">
-                <!-- Calendar Table -->
-                <div>
-                    <table class="table calendar-table">
-                        <thead class="table-primary textotabla">
-                            <tr>
-                                <th>Lunes 28</th>
-                                <th>Martes 29</th>
-                                <th>Miércoles 30</th>
-                                <th>Jueves 31</th>
-                                <th>Viernes 1</th>
-                                <th>Sábado 2</th>
-                                <th>Domingo 3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="task">OT 10201 Revisión cámara</div>
-                                </td>
-                                <td>
-                                    <div class="task">OT 10202 Instalación</div>
-                                </td>
-                                <td>
-                                    <div class="task">OT 10202 Instalación</div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td><div class="task">OT 10202 Instalación</div></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <section>
-                        <div class="task-container container-fluid col-md-10">
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                            <div class="task-card">OT 10282, 8 días</div>
-                            <div class="task-card">OT 10283, 9 días</div>
-                        </div>
-                    </section>
-                </div>
+                <table class="table table-bordered text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Lunes 28</th>
+                            <th>Martes 29</th>
+                            <th>Miércoles 30</th>
+                            <th>Jueves 31</th>
+                            <th>Viernes 1</th>
+                            <th>Sábado 2</th>
+                            <th>Domingo 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-primary">OT 10201 Revisión cámara</td>
+                            <td class="table-secondary">OT 10202 Instalación</td>
+                            <td class="table-success">OT 10202 Instalación</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="table-success">OT 10202 Instalación</td>
+                            <td></td>
+                            <td></td>
+                            <td class="table-secondary">OT 10202 Instalación</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
-
     <!-- SECTION FOOTER -->
     <footer class="footer text-white mt-auto position-fixed bottom-0 w-100">
         <!-- Segunda sección (dirección y redes sociales) -->

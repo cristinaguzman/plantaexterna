@@ -394,9 +394,18 @@ button.btn:hover {
 footer {
     background-color: #1d71b8; /* Azul oscuro */
     color: #ffffff;
-    padding: 15px 0;
-    height: 15vh;
+    padding: 10px 0;
+    height: 10vh;
     text-align: center;
+}
+
+.footer-bottom {
+    background-color: #1e73be;
+    min-height: 60px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .footer-text {
@@ -408,3 +417,5 @@ footer {
     max-height: 40px;
 }
 /* Footer */
+
+
