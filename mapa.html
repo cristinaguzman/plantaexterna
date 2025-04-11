@@ -166,71 +166,81 @@
             <aside class="col-md-2 bg-light py-3 mt-2">
                 <hr>
                 <h6 class="mt-3" style="color: #7B1FA2;">Filtros por estados</h6>
-                <ul class="list-unstyled">
-                    <li>
+                <section aria-label="Estados de tareas">
+                    <ul class="list-unstyled">
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="creada" checked>
-                            <span style="width:12px;height:12px;background-color:#0000FF;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="creada" style="color: #0000FF;">Creada</label>
+                          <input class="form-check-input" type="checkbox" id="creada" checked>
+                          <span style="width:12px;height:12px;background-color:#0000FF;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="creada" style="color: #0000FF;">Creada</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="agendada" checked>
-                            <span style="width:12px;height:12px;background-color:#ff906d;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="agendada" style="color: #ff906d;">Agendada</label>
+                          <input class="form-check-input" type="checkbox" id="por-agendar" checked>
+                          <span style="width:12px;height:12px;background-color:#fd8100;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="por-agendar" style="color: #fd8100;">Por Agendar</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="recibida" checked>
-                            <span style="width:12px;height:12px;background-color:#009688;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="recibida" style="color: #009688;">Recibida</label>
+                          <input class="form-check-input" type="checkbox" id="agendada" checked>
+                          <span style="width:12px;height:12px;background-color:#c89a0b;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="agendada" style="color: #c89a0b;">Agendada</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="enRuta">
-                            <span style="width:12px;height:12px;background-color:#F1C232;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="enRuta" style="color: #F1C232;">En Ruta</label>
+                          <input class="form-check-input" type="checkbox" id="recibida" checked>
+                          <span style="width:12px;height:12px;background-color:#009688;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="recibida" style="color: #009688;">Recibida</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="iniciada">
-                            <span style="width:12px;height:12px;background-color:#3F51B5;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="iniciada" style="color: #3F51B5;">Iniciada</label>
+                          <input class="form-check-input" type="checkbox" id="en-ruta">
+                          <span style="width:12px;height:12px;background-color:#F1C232;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="en-ruta" style="color: #F1C232;">En Ruta</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="Anulada">
-                            <span style="width:12px;height:12px;background-color:#ff0000;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="pausada" style="color: #ff0000;">Anulada</label>
+                          <input class="form-check-input" type="checkbox" id="iniciada">
+                          <span style="width:12px;height:12px;background-color:#3F51B5;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="iniciada" style="color: #3F51B5;">Iniciada</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="pausada">
-                            <span style="width:12px;height:12px;background-color:#f86999;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="pausada" style="color: #f86999;">Pausada</label>
+                          <input class="form-check-input" type="checkbox" id="anulada">
+                          <span style="width:12px;height:12px;background-color:#FF0000;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="anulada" style="color: #FF0000;">Anulada</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="continuada">
-                            <span style="width:12px;height:12px;background-color:#4CAF50;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="continuada" style="color: #4CAF50;">Continuada</label>
+                          <input class="form-check-input" type="checkbox" id="pausada">
+                          <span style="width:12px;height:12px;background-color:#f86999;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="pausada" style="color: #f86999;">Pausada</label>
                         </div>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <div class="form-check d-flex align-items-center gap-2">
-                            <input class="form-check-input" type="checkbox" id="finalizada">
-                            <span style="width:12px;height:12px;background-color:#9C27B0;border-radius:50%;display:inline-block;"></span>
-                            <label class="form-check-label" for="terminada" style="color: #9C27B0;">Finalizada</label>
+                          <input class="form-check-input" type="checkbox" id="continuada">
+                          <span style="width:12px;height:12px;background-color:#4CAF50;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="continuada" style="color: #4CAF50;">Continuada</label>
                         </div>
-                    </li>
-                </ul>
+                      </li>
+                      <li>
+                        <div class="form-check d-flex align-items-center gap-2">
+                          <input class="form-check-input" type="checkbox" id="finalizada">
+                          <span style="width:12px;height:12px;background-color:#9C27B0;border-radius:50%;display:inline-block;"></span>
+                          <label class="form-check-label" for="finalizada" style="color: #9C27B0;">Finalizada</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                  
             
                 <hr>
                 <div class="form-check">
